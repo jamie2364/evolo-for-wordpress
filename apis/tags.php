@@ -2,8 +2,8 @@
 
 
 ///////////////////////////////////////Include JWT Authentication functions///////////
-if (file_exists( get_stylesheet_directory() . '/jwt_api.php' )) {
-    include_once get_stylesheet_directory() . '/jwt_api.php';
+if (file_exists(__DIR__ . '../functions/jwt-functions.php')) {
+    include_once __DIR__ . '../functions/jwt-functions.php';
 }
 
 require_once(plugin_dir_path(__FILE__) . '../functions/get-skill-id-by-name.php');
