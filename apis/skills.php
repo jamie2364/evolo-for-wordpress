@@ -1,8 +1,8 @@
 <?php
 
 ///////////////////////////////////////Include JWT Authentication functions///////////
-if (file_exists(__DIR__ . '/../functions/jwt-functions.php')) {
-    include_once __DIR__ . '/../functions/jwt-functions.php';
+if (file_exists(__DIR__ . '../functions/jwt-functions.php')) {
+    include_once __DIR__ . '../functions/jwt-functions.php';
 }
 
 
