@@ -4,7 +4,7 @@
 Plugin Name: Evolo for Wordpress
 Plugin URI: https://github.com/jamie2364/evolo-for-wordpress
 Description: All API functionality for practice routines app.
-Version: 1.0.6
+Version: 1.0.8
 Author: Jamie Harrison
 GitHub Plugin URI: https://github.com/jamie2364/evolo-for-wordpress
 Primary Branch: main
