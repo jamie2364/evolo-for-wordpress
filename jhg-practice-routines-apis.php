@@ -3,7 +3,7 @@
 /*
 Plugin Name: Evolo for Wordpress
 Description: All API functionality for practice routines app.
-Version: 1.0.0
+Version: 1.0.1
 Author: Jamie Harrison
 */
 
