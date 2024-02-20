@@ -6,7 +6,6 @@ Description: All API functionality for practice routines app.
 Version: 1.0.1
 Author: Jamie Harrison
 GitHub Plugin URI: jamie2364/evolo-for-wordpress
-Release Asset: true
 Primary Branch: main
 */
 
