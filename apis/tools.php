@@ -2,8 +2,8 @@
 
 
 ///////////////////////////////////////Include JWT Authentication functions///////////
-if (file_exists(__DIR__ . '../functions/jwt-functions.php')) {
-    include_once __DIR__ . '../functions/jwt-functions.php';
+if (file_exists(__DIR__ . '/../functions/jwt-functions.php')) {
+    include_once __DIR__ . '/../functions/jwt-functions.php';
 }
 
 require_once(plugin_dir_path(__FILE__) . '../functions/get-skill-id-by-name.php');
@@ -17,12 +17,12 @@ add_action('rest_api_init', function () {
         array(
             'methods' => 'GET',
             'callback' => 'get_tools_by_skill',
-            'permission_callback' => 'jwt_permission_callback' // Ensure JWT authentication is set up
+            'permission_callback' => 'evolo_jwt_permission_callback' // Ensure JWT authentication is set up
         ),
         array(
             'methods' => 'POST',
             'callback' => 'post_tool',
-            'permission_callback' => 'jwt_permission_callback' // Ensure JWT authentication is set up
+            'permission_callback' => 'evolo_jwt_permission_callback' // Ensure JWT authentication is set up
         )
     ));
 });

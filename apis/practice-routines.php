@@ -1,8 +1,8 @@
 <?php
 
 ///////////////////////////////////////Include JWT Authentication functions///////////
-if (file_exists(__DIR__ . '../functions/jwt-functions.php')) {
-    include_once __DIR__ . '../functions/jwt-functions.php';
+if (file_exists(__DIR__ . '/../functions/jwt-functions.php')) {
+    include_once __DIR__ . '/../functions/jwt-functions.php';
 }
 
 
@@ -23,7 +23,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/submitPractice', array(
         'methods' => 'POST',
         'callback' => 'submit_practice_routine',
-        'permission_callback' => 'jwt_permission_callback' // Assuming JWT auth is set up
+        'permission_callback' => 'evolo_jwt_permission_callback' // Assuming JWT auth is set up
     ));
 });
 
@@ -185,7 +185,7 @@ add_action('rest_api_init', function () {
 
 function custom_permission_callback($request) {
     // Simplified permission callback logic
-    return $request->get_param('user_id') ? jwt_permission_callback_no_user_id($request) : jwt_permission_callback($request);
+    return $request->get_param('user_id') ? evolo_jwt_permission_callback_no_user_id($request) : evolo_jwt_permission_callback($request);
 }
 
 function get_practice_data($request) {
@@ -391,9 +391,9 @@ function fetchAllToolsUsed($user_id, $dateCondition) {
 //         $user_id_param = $request->get_param('user_id');
         
 //         if ($user_id_param) {
-//             return jwt_permission_callback_no_user_id($request); // Use jwt_permission_callback_no_user_id
+//             return evolo_jwt_permission_callback_no_user_id($request); // Use evolo_jwt_permission_callback_no_user_id
 //         } else {
-//             return jwt_permission_callback($request); // Use jwt_permission_callback
+//             return evolo_jwt_permission_callback($request); // Use evolo_jwt_permission_callback
 //         }
 //     };
 
@@ -656,7 +656,7 @@ function fetchAllToolsUsed($user_id, $dateCondition) {
 //                 'type' => 'string',
 //             ],
 //         ],
-//         'permission_callback' => 'jwt_permission_callback'
+//         'permission_callback' => 'evolo_jwt_permission_callback'
 //     ));
 // });
 
@@ -735,7 +735,7 @@ add_action( 'rest_api_init', function () {
                 'type'        => 'string',
             ),
         ),
-        'permission_callback' => 'jwt_permission_callback',
+        'permission_callback' => 'evolo_jwt_permission_callback',
     ) );
 } );
 

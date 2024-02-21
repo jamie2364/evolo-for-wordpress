@@ -2,8 +2,8 @@
 
 
 ///////////////////////////////////////Include JWT Authentication functions///////////
-if (file_exists(__DIR__ . '../functions/jwt-functions.php')) {
-    include_once __DIR__ . '../functions/jwt-functions.php';
+if (file_exists(__DIR__ . '/../functions/jwt-functions.php')) {
+    include_once __DIR__ . '/../functions/jwt-functions.php';
 }
 
 require_once(plugin_dir_path(__FILE__) . '../functions/get-skill-id-by-name.php');
@@ -24,7 +24,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/PracticeModuleInfo', array(
         'methods' => 'POST',
         'callback' => 'post_practice_module_info',
-        'permission_callback' => 'jwt_permission_callback'
+        'permission_callback' => 'evolo_jwt_permission_callback'
     ));
 });
 
@@ -161,7 +161,7 @@ add_action('rest_api_init', function () {
                 'required' => true,
             ),
         ),
-        'permission_callback' => 'jwt_permission_callback',
+        'permission_callback' => 'evolo_jwt_permission_callback',
     ));
 });
 
@@ -233,7 +233,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/PracticeModuleInfo', array(
         'methods' => 'PUT',
         'callback' => 'put_practice_module_info',
-        'permission_callback' => 'jwt_permission_callback',
+        'permission_callback' => 'evolo_jwt_permission_callback',
     ));
 });
 
@@ -340,7 +340,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/PracticeModuleInfo', array(
         'methods' => 'DELETE',
         'callback' => 'delete_practice_module_info',
-        'permission_callback' => 'jwt_permission_callback',
+        'permission_callback' => 'evolo_jwt_permission_callback',
         'args' => array(
             'module_id' => array(
                 'required' => true,

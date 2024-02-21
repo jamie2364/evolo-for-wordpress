@@ -16,7 +16,7 @@ use Firebase\JWT\Key;
 /////////////////////////////////////////////////////// Callback function to check JWT permissions
 
 
-function jwt_permission_callback($request) {
+function evolo_jwt_permission_callback($request) {
     $jwt_token = $request->get_header('Authorization');
 
     if (empty($jwt_token) || !preg_match('/Bearer\s(\S+)/', $jwt_token, $matches)) {
@@ -50,7 +50,7 @@ function jwt_permission_callback($request) {
 }
 
 
-function jwt_permission_callback_no_user_id($request) {
+function evolo_jwt_permission_callback_no_user_id($request) {
     $jwt_token = $request->get_header('Authorization');
 
     if (empty($jwt_token) || !preg_match('/Bearer\s(\S+)/', $jwt_token, $matches)) {

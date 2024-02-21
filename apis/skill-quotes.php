@@ -2,8 +2,8 @@
 
 
 ///////////////////////////////////////Include JWT Authentication functions///////////
-if (file_exists(__DIR__ . '../functions/jwt-functions.php')) {
-    include_once __DIR__ . '../functions/jwt-functions.php';
+if (file_exists(__DIR__ . '/../functions/jwt-functions.php')) {
+    include_once __DIR__ . '/../functions/jwt-functions.php';
 }
 
 require_once(plugin_dir_path(__FILE__) . '../functions/get-skill-id-by-name.php');
@@ -17,7 +17,7 @@ function custom_skill_quotes_api_init() {
     register_rest_route('jhg-apps/v1', '/skill-quotes', array(
         'methods' => 'GET',
         'callback' => 'get_random_skill_quote',
-        'permission_callback' => 'jwt_permission_callback',
+        'permission_callback' => 'evolo_jwt_permission_callback',
     ));
 }
 

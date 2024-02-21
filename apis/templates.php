@@ -1,8 +1,8 @@
 <?php
 
 ///////////////////////////////////////Include JWT Authentication functions///////////
-if (file_exists(__DIR__ . '../functions/jwt-functions.php')) {
-    include_once __DIR__ . '../functions/jwt-functions.php';
+if (file_exists(__DIR__ . '/../functions/jwt-functions.php')) {
+    include_once __DIR__ . '/../functions/jwt-functions.php';
 }
 
 require_once(plugin_dir_path(__FILE__) . '../functions/get-skill-id-by-name.php');
@@ -14,7 +14,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/user-templates/', array(
         'methods' => 'POST',
         'callback' => 'create_user_templates',
-        'permission_callback' => 'jwt_permission_callback'
+        'permission_callback' => 'evolo_jwt_permission_callback'
     ));
 });
 
@@ -243,7 +243,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/user-templates/', array(
         'methods' => 'GET',
         'callback' => 'list_user_templates',
-        'permission_callback' => 'jwt_permission_callback'
+        'permission_callback' => 'evolo_jwt_permission_callback'
     ));
 });
 
@@ -370,7 +370,7 @@ function format_modules($templateId) {
 //     register_rest_route('jhg-apps/v1', '/user-templates', array(
 //         'methods' => 'PUT',
 //         'callback' => 'update_user_template',
-//         'permission_callback' => 'jwt_permission_callback'
+//         'permission_callback' => 'evolo_jwt_permission_callback'
 //     ));
 // });
 
@@ -445,7 +445,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/user-templates', array(
         'methods' => 'PUT',
         'callback' => 'update_user_template',
-        'permission_callback' => 'jwt_permission_callback'
+        'permission_callback' => 'evolo_jwt_permission_callback'
     ));
 });
 
@@ -578,7 +578,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/user-templates', array(
         'methods' => 'DELETE',
         'callback' => 'delete_user_template',
-        'permission_callback' => 'jwt_permission_callback'
+        'permission_callback' => 'evolo_jwt_permission_callback'
     ));
 });
 

@@ -1,8 +1,8 @@
 <?php
 
 ///////////////////////////////////////Include JWT Authentication functions///////////
-if (file_exists(__DIR__ . '../functions/jwt-functions.php')) {
-    include_once __DIR__ . '../functions/jwt-functions.php';
+if (file_exists(__DIR__ . '/../functions/jwt-functions.php')) {
+    include_once __DIR__ . '/../functions/jwt-functions.php';
 }
 
 require_once(plugin_dir_path(__FILE__) . '../functions/get-skill-id-by-name.php');
@@ -15,7 +15,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/practice-count', array(
         'methods' => 'GET',
         'callback' => 'get_practice_count',
-        'permission_callback' => 'jwt_permission_callback',
+        'permission_callback' => 'evolo_jwt_permission_callback',
         'args' => array(
             'start_date' => array(
                 'required' => true,
@@ -163,7 +163,7 @@ add_action( 'rest_api_init', function () {
     register_rest_route( 'jhg-apps/v1', '/add-goal', array(
         'methods' => 'POST',
         'callback' => 'add_new_goal',
-        'permission_callback' => 'jwt_permission_callback',
+        'permission_callback' => 'evolo_jwt_permission_callback',
         'args' => array(
             'skill' => array(
                 'required' => true,
@@ -423,7 +423,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/update-goal-status', array(
         'methods' => 'PUT',
         'callback' => 'update_goal_status',
-        'permission_callback' => 'jwt_permission_callback',
+        'permission_callback' => 'evolo_jwt_permission_callback',
         'args' => array(
             'id' => array(
                 'required' => true,

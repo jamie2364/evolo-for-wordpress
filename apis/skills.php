@@ -1,8 +1,8 @@
 <?php
 
 ///////////////////////////////////////Include JWT Authentication functions///////////
-if (file_exists(__DIR__ . '../functions/jwt-functions.php')) {
-    include_once __DIR__ . '../functions/jwt-functions.php';
+if (file_exists(__DIR__ . '/../functions/jwt-functions.php')) {
+    include_once __DIR__ . '/../functions/jwt-functions.php';
 }
 
 
@@ -24,7 +24,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/user-skills', array(
         'methods' => 'POST',
         'callback' => 'submit_user_skill',
-        'permission_callback' => 'jwt_permission_callback' // Updated permission callback
+        'permission_callback' => 'evolo_jwt_permission_callback' // Updated permission callback
     ));
 });
 
@@ -84,7 +84,7 @@ function submit_user_skill($request) {
 //     register_rest_route('jhg-apps/v1', '/skills', array(
 //         'methods' => 'GET',
 //         'callback' => 'get_user_skill',
-//         'permission_callback' => 'jwt_permission_callback' // Updated permission callback
+//         'permission_callback' => 'evolo_jwt_permission_callback' // Updated permission callback
 //     ));
 // });
 
@@ -150,7 +150,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/skills', array(
         'methods' => 'POST',
         'callback' => 'add_skill',
-        'permission_callback' => 'jwt_permission_callback' // Assuming permission callback function
+        'permission_callback' => 'evolo_jwt_permission_callback' // Assuming permission callback function
     ));
 });
 
@@ -191,7 +191,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/skills', array(
         'methods' => 'GET',
         'callback' => 'get_skills',
-        'permission_callback' => 'jwt_permission_callback' // Assuming permission callback function
+        'permission_callback' => 'evolo_jwt_permission_callback' // Assuming permission callback function
     ));
 });
 
@@ -260,7 +260,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/skills', array(
         'methods' => 'PUT',
         'callback' => 'update_skill',
-        'permission_callback' => 'jwt_permission_callback' // Assuming permission callback function
+        'permission_callback' => 'evolo_jwt_permission_callback' // Assuming permission callback function
     ));
 });
 
@@ -306,7 +306,7 @@ add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/skills', array(
         'methods' => 'DELETE',
         'callback' => 'delete_skill',
-        'permission_callback' => 'jwt_permission_callback' // Assuming permission callback function
+        'permission_callback' => 'evolo_jwt_permission_callback' // Assuming permission callback function
     ));
 });
 
