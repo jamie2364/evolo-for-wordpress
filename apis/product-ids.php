@@ -4,8 +4,9 @@
 function get_product_ids_endpoint() {
     $product_ids = get_option('product_ids_option');
     $product_ids_array = explode(',', $product_ids);
+    $product_ids_string = implode(',', $product_ids_array); // Convert array to comma-separated string
     $response = array(
-        'product_ids' => $product_ids_array
+        'product_ids' => $product_ids_string
     );
     return rest_ensure_response($response);
 }
