@@ -1,10 +1,9 @@
 <?php
-
 /*
 Plugin Name: Evolo for Wordpress
 Plugin URI: https://github.com/jamie2364/evolo-for-wordpress
 Description: All API functionality for practice routines app.
-Version: 1.0.11
+Version: 1.0.12
 Author: Jamie Harrison
 GitHub Plugin URI: https://github.com/jamie2364/evolo-for-wordpress
 Primary Branch: main
@@ -24,8 +23,19 @@ $api_files = array(
     'skills.php',
     'tags.php',
     'templates.php',
-    'tools.php'
+    'tools.php',
+    'product-ids.php'
 );
+
+// Include add-product-ids.php from the 'functions' folder
+$functions_folder = plugin_dir_path(__FILE__) . 'functions/';
+$add_product_ids_file = $functions_folder . 'add-product-ids.php';
+if (file_exists($add_product_ids_file)) {
+    require_once $add_product_ids_file;
+} else {
+    // Handle the case if the file doesn't exist
+    echo "Error: File $add_product_ids_file not found!";
+}
 
 foreach ($api_files as $file) {
     // Construct the full path to each file
@@ -39,3 +49,4 @@ foreach ($api_files as $file) {
         echo "Error: File $file_path not found!";
     }
 }
+
