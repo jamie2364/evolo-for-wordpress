@@ -15,14 +15,14 @@ require_once(plugin_dir_path(__FILE__) . '../functions/get-skill-id-by-name.php'
 function register_buddies_api_endpoints() {
 
 
-    register_rest_route('jhg-apps', '/buddies', array(
+    register_rest_route('jhg-apps/v1', '/buddies', array(
         'methods' => 'POST',
         'callback' => 'add_buddy',
         'permission_callback' => 'evolo_jwt_permission_callback'
     ));
 
 
-    register_rest_route('jhg-apps', '/buddies', array(
+    register_rest_route('jhg-apps/v1', '/buddies', array(
         'methods' => 'GET',
         'callback' => 'get_buddies',
         'permission_callback' => 'evolo_jwt_permission_callback'
@@ -31,7 +31,7 @@ function register_buddies_api_endpoints() {
 
 	
 
-    register_rest_route('jhg-apps', '/buddies', array(
+    register_rest_route('jhg-apps/v1', '/buddies', array(
     'methods' => 'PUT',
     'callback' => 'update_buddy_request',
     'permission_callback' => 'evolo_jwt_permission_callback'

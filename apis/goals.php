@@ -160,7 +160,7 @@ function is_goal_complete($count, $frequency) {
 
 
 add_action( 'rest_api_init', function () {
-    register_rest_route( 'jhg-apps/v1', '/add-goal', array(
+    register_rest_route( 'jhg-apps/v1', '/goals', array(
         'methods' => 'POST',
         'callback' => 'add_new_goal',
         'permission_callback' => 'evolo_jwt_permission_callback',
@@ -284,6 +284,42 @@ function is_end_date_valid($frequency, $end_date) {
             return false;
     }
 }
+
+
+
+
+//////////////// View all goals
+
+
+// Register the GET route for retrieving user goals
+add_action('rest_api_init', function () {
+    register_rest_route('jhg-apps/v1', '/goals', array(
+        'methods' => 'GET',
+        'callback' => 'get_user_goals',
+        'permission_callback' => 'evolo_jwt_permission_callback' // Reuse the permission callback to ensure the user is authenticated
+    ));
+});
+
+function get_user_goals($request) {
+    global $wpdb;
+    $user_id = get_current_user_id();
+    if (!$user_id) {
+        return new WP_Error('jwt_auth_failed', 'User authentication failed', array('status' => 403));
+    }
+
+    $table_name = 'pr_goals';
+    // Query to select goals for the current user
+    $query = $wpdb->prepare("SELECT * FROM $table_name WHERE user_id = %d", $user_id);
+    $goals = $wpdb->get_results($query);
+
+    if (!empty($goals)) {
+        // Optionally, enrich goal data here (e.g., with skill names instead of IDs)
+        return new WP_REST_Response($goals, 200);
+    } else {
+        return new WP_Error('no_goals_found', 'No goals found for the user', array('status' => 404));
+    }
+}
+
 
 
 
