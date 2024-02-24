@@ -1,0 +1,617 @@
+{
+  "quizTitle": "Learning Style Quiz",
+  "questions": [
+    {
+      "questionText": "How do you prefer to study for a test?",
+      "answers": [
+        {
+          "answerText": "Answer practice questions aloud",
+          "score": 2
+        },
+        {
+          "answerText": "Review images and charts",
+          "score": 1
+        },
+        {
+          "answerText": "Think of practical examples",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "questionText": "If someone says the word “lion,” what comes to mind first?",
+      "answers": [
+        {
+          "answerText": "An ear-piercing roar",
+          "score": 2
+        },
+        {
+          "answerText": "The word “lion” spelled out",
+          "score": 3
+        },
+        {
+          "answerText": "A fluffy brown mane",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "If you went to a concert, what would you remember most?",
+      "answers": [
+        {
+          "answerText": "How you acted — like if you danced or sang along",
+          "score": 3
+        },
+        {
+          "answerText": "How the music sounded",
+          "score": 2
+        },
+        {
+          "answerText": "How the venue looked and the faces that you saw",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "If you went to a school dance, what would you be most likely to remember the next day?",
+      "answers": [
+        {
+          "answerText": "The dance moves you did and the food you ate",
+          "score": 3
+        },
+        {
+          "answerText": "The music that was played",
+          "score": 2
+        },
+        {
+          "answerText": "The faces of the people who were there",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "If you won a game, which of these three prizes would you choose?",
+      "answers": [
+        {
+          "answerText": "A game of some kind (or a football or soccer ball, etc.)",
+          "score": 3
+        },
+        {
+          "answerText": "A music CD or mp3 download",
+          "score": 2
+        },
+        {
+          "answerText": "A poster for the wall",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "If you're ever unsure of how to spell a word, what are you most likely to do?",
+      "answers": [
+        {
+          "answerText": "Trace the letters in the air with your finger",
+          "score": 3
+        },
+        {
+          "answerText": "Spell it out to see if it sounds right",
+          "score": 2
+        },
+        {
+          "answerText": "Write it down to see if it looks right",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "In lectures, you:",
+      "answers": [
+        {
+          "answerText": "Listen without taking notes and engage in discussion",
+          "score": 2
+        },
+        {
+          "answerText": "Follow along in the textbook and take notes vigorously",
+          "score": 1
+        },
+        {
+          "answerText": "Think about how the topic would play out in a real-life situation",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "questionText": "Of these three classes, which is your favorite?",
+      "answers": [
+        {
+          "answerText": "Music class",
+          "score": 2
+        },
+        {
+          "answerText": "Art class",
+          "score": 1
+        },
+        {
+          "answerText": "Gym class",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "questionText": "What are you most likely to remember about new people you meet?",
+      "answers": [
+        {
+          "answerText": "What you talked about with them",
+          "score": 3
+        },
+        {
+          "answerText": "Their name but not their face",
+          "score": 2
+        },
+        {
+          "answerText": "Their face but not their name",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "What do you find most distracting when in class?",
+      "answers": [
+        {
+          "answerText": "Lights that are too bright or too dim",
+          "score": 1
+        },
+        {
+          "answerText": "Noises from the hallway or outside the building (like traffic or someone cutting the grass)",
+          "score": 2
+        },
+        {
+          "answerText": "The temperature being too hot or too cold",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "questionText": "What do you find most distracting when you are trying to study?",
+      "answers": [
+        {
+          "answerText": "People walking past you",
+          "score": 1
+        },
+        {
+          "answerText": "Loud noises",
+          "score": 2
+        },
+        {
+          "answerText": "An uncomfortable chair",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "questionText": "What do you like to do to relax?",
+      "answers": [
+        {
+          "answerText": "Listen to music",
+          "score": 2
+        },
+        {
+          "answerText": "Exercise (walk, run, play sports, etc.)",
+          "score": 3
+        },
+        {
+          "answerText": "Read",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "What is the best way for you to remember a friend's phone number?",
+      "answers": [
+        {
+          "answerText": "Write it down or store it in your phone contact list",
+          "score": 3
+        },
+        {
+          "answerText": "Say it out loud over and over and over",
+          "score": 2
+        },
+        {
+          "answerText": "Picture the numbers on the phone as you would dial them",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "What is your preferred method of receiving feedback on a project?",
+      "answers": [
+        {
+          "answerText": "Demonstration of how to correct the errors",
+          "score": 3
+        },
+        {
+          "answerText": "A one-on-one meeting with an instructor or manager to talk through the errors",
+          "score": 2
+        },
+        {
+          "answerText": "Errors highlighted as a visual representation of what to correct",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "What kind of book would you like to read for fun?",
+      "answers": [
+        {
+          "answerText": "A book with lots of pictures in it",
+          "score": 1
+        },
+        {
+          "answerText": "A book with lots of words in it",
+          "score": 2
+        },
+        {
+          "answerText": "A book with word searches or crossword puzzles",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "questionText": "What's the best way for you to learn about how something works (like a computer or a video game)?",
+      "answers": [
+        {
+          "answerText": "Figure it out on your own",
+          "score": 3
+        },
+        {
+          "answerText": "Read about it or listen to someone explain it",
+          "score": 2
+        },
+        {
+          "answerText": "Get someone to show you",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "What's the best way for you to study for a test?",
+      "answers": [
+        {
+          "answerText": "Have someone ask you questions that you can answer out loud",
+          "score": 2
+        },
+        {
+          "answerText": "Make up index cards that you can review",
+          "score": 3
+        },
+        {
+          "answerText": "Read the book or your notes and review pictures or charts",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "What's the best way for you to study for an exam?",
+      "answers": [
+        {
+          "answerText": "Read the book or your notes and review pictures or charts",
+          "score": 1
+        },
+        {
+          "answerText": "Get a friend or family member to ask you questions that you can answer out loud",
+          "score": 2
+        },
+        {
+          "answerText": "Make index cards that you can review",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "questionText": "When in a new place, how do you find your way around?",
+      "answers": [
+        {
+          "answerText": "Look for a map or directory that shows you where everything is",
+          "score": 1
+        },
+        {
+          "answerText": "Ask someone for directions",
+          "score": 2
+        },
+        {
+          "answerText": "Just start walking around until you find what you're looking for",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "questionText": "When you are angry, what are you most likely to do?",
+      "answers": [
+        {
+          "answerText": "Yell and scream",
+          "score": 2
+        },
+        {
+          "answerText": "Put on your \"mad\" face",
+          "score": 1
+        },
+        {
+          "answerText": "Slam doors",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "questionText": "When you are happy, what are you most likely to do?",
+      "answers": [
+        {
+          "answerText": "Smile from ear to ear",
+          "score": 1
+        },
+        {
+          "answerText": "Act really hyper",
+          "score": 3
+        },
+        {
+          "answerText": "Talk up a storm",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "questionText": "When you are not sure how to spell a word, what are you most likely to do?",
+      "answers": [
+        {
+          "answerText": "Write it down to see if it looks right",
+          "score": 1
+        },
+        {
+          "answerText": "Trace the letters in the air (finger spelling)",
+          "score": 3
+        },
+        {
+          "answerText": "Spell it out loud to see if it sounds right",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "questionText": "When you give someone directions to your house, what are you most likely to tell them?",
+      "answers": [
+        {
+          "answerText": "A description of buildings and landmarks they will pass on the way",
+          "score": 1
+        },
+        {
+          "answerText": "The names of the roads or streets they will be on",
+          "score": 2
+        },
+        {
+          "answerText": "\"Follow me—it will be easier if I just show you how to get there.\"",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "questionText": "When you hear a song on the radio, what are you most likely to do?",
+      "answers": [
+        {
+          "answerText": "Sing or hum along with the music",
+          "score": 2
+        },
+        {
+          "answerText": "Start dancing or tapping your foot",
+          "score": 3
+        },
+        {
+          "answerText": "Picture the video that goes along with it",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "When you see the word \"cat\", what do you do?",
+      "answers": [
+        {
+          "answerText": "Picture a cat in your mind",
+          "score": 1
+        },
+        {
+          "answerText": "Think about being with a cat (stroking it or hearing it meow)",
+          "score": 3
+        },
+        {
+          "answerText": "Say the word \"cat\" to yourself",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "questionText": "Which would you rather go to with a group of friends?",
+      "answers": [
+        {
+          "answerText": "A movie",
+          "score": 1
+        },
+        {
+          "answerText": "An amusement park",
+          "score": 3
+        },
+        {
+          "answerText": "A concert",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "questionText": "You are moving to a new place. How do you plan where you will put things in your kitchen?",
+      "answers": [
+        {
+          "answerText": "Find interior design inspiration on Pinterest",
+          "score": 1
+        },
+        {
+          "answerText": "Listen to a home organization podcast",
+          "score": 2
+        },
+        {
+          "answerText": "Use sticky notes labeling cabinets and drawers as you go",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "questionText": "You are traveling to a new city. How would you plan out your visit?",
+      "answers": [
+        {
+          "answerText": "Ask a friend for recommendations",
+          "score": 2
+        },
+        {
+          "answerText": "Check out the city’s map online to find top attractions",
+          "score": 1
+        },
+        {
+          "answerText": "Figure it out when you get there",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "questionText": "You find reading",
+      "answers": [
+        {
+          "answerText": "Pretty boring; you'd rather be outside",
+          "score": 3
+        },
+        {
+          "answerText": "Takes too long; you get fidgety",
+          "score": 1
+        },
+        {
+          "answerText": "The best and most relaxing thing ever",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "questionText": "You prefer to",
+      "answers": [
+        {
+          "answerText": "Listen to things rather than read about them",
+          "score": 2
+        },
+        {
+          "answerText": "Handle physical objects and try to understand",
+          "score": 3
+        },
+        {
+          "answerText": "Analyse pictures, graphs and charts",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "You receive a medical diagnosis. How would you like the doctor to discuss it with you?",
+      "answers": [
+        {
+          "answerText": "Describe what the condition is",
+          "score": 2
+        },
+        {
+          "answerText": "Provide medical brochures about the condition",
+          "score": 3
+        },
+        {
+          "answerText": "Show a diagram of how the condition affects the body",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "You remember things by",
+      "answers": [
+        {
+          "answerText": "Watching a demonstration",
+          "score": 1
+        },
+        {
+          "answerText": "Experiencing them for yourself (being hands on)",
+          "score": 3
+        },
+        {
+          "answerText": "Saying them out loud",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "questionText": "You want to save money for a down payment on a house. You:",
+      "answers": [
+        {
+          "answerText": "Create a pie chart as you save to visualize your progress",
+          "score": 1
+        },
+        {
+          "answerText": "Stuff cash away into envelopes",
+          "score": 3
+        },
+        {
+          "answerText": "Meet with a financial advisor to discuss your goals",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "questionText": "You want to try a new hobby. How do you get started?",
+      "answers": [
+        {
+          "answerText": "Jumping right in and figuring it out as you go",
+          "score": 3
+        },
+        {
+          "answerText": "Watch a tutorial video on YouTube",
+          "score": 1
+        },
+        {
+          "answerText": "Listen to a podcast featuring an expert on the subject",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "questionText": "You're more likely to remember somebody's",
+      "answers": [
+        {
+          "answerText": "Name",
+          "score": 2
+        },
+        {
+          "answerText": "Hug",
+          "score": 3
+        },
+        {
+          "answerText": "Face",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "questionText": "You're out shopping and you are standing in the queue at the checkout. What are you most likely to do while you are waiting?",
+      "answers": [
+        {
+          "answerText": "Talk to the person next to you in the queue",
+          "score": 2
+        },
+        {
+          "answerText": "Fidget, move about or rock / lean on your feet",
+          "score": 3
+        },
+        {
+          "answerText": "Look around at other clothes",
+          "score": 1
+        }
+      ]
+    }
+  ]
+}

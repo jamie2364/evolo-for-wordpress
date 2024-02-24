@@ -1,0 +1,29 @@
+{
+  "skill_name": "gkjhfg",
+  "skill_modules": [
+    {
+      "module_name": "virgo1",
+      "description": "While everyone’s typical warm-up varies, it often involves playing lots of notes (like chromatic scales) and using big stretches to get the hands warmed up. Very useful for getting the blood flowing into the fingers.",
+      "images": [""],
+      "tags": ["sheebyjeeby", "greensleeve"]
+    },
+    {
+      "module_name": "virgo2",
+      "description": "Focusing on the UP_DOWN motion of the right hand. Playing something easy on the left hand so that you can fully focus on the groove and rhythm of the track.",
+      "images": [""],
+      "tags": ["sheebs"]
+    },
+    {
+      "module_name": "virgo3",
+      "description": "Working on whatever song you happen to be learning at any point in time. This is a ‘free’ module where you can decide which aspect of that song to work on.",
+      "images": [""],
+      "tags": ["sheebs2"]
+    }
+  ],
+  "skill_tools": [
+        {
+            "tool_name": "shreen",
+            "description": "Testing"
+        }
+    ]
+}

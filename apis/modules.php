@@ -9,6 +9,7 @@ if (file_exists(__DIR__ . '/../functions/jwt-functions.php')) {
 require_once(plugin_dir_path(__FILE__) . '../functions/get-skill-id-by-name.php');
 
 
+
 /////////////////////////////////////////////////// Post module data to the database
 
 /**
@@ -19,7 +20,124 @@ require_once(plugin_dir_path(__FILE__) . '../functions/get-skill-id-by-name.php'
  */
 
 
-// Register the REST API endpoint
+// // Register the REST API endpoint
+// add_action('rest_api_init', function () {
+//     register_rest_route('jhg-apps/v1', '/PracticeModuleInfo', array(
+//         'methods' => 'POST',
+//         'callback' => 'post_practice_module_info',
+//         'permission_callback' => 'evolo_jwt_permission_callback'
+//     ));
+// });
+
+// // Callback function to handle POST request for module info
+// function post_practice_module_info($request) {
+//     global $wpdb;
+
+//     // Decode the JSON request body
+//     $data = json_decode($request->get_body(), true);
+
+//     // Sanitize input data
+//     $skill_name = sanitize_text_field($data['skill_name']);
+//     $skill_modules = $data['skill_modules'];
+
+//     // Convert skill name to skill_id
+//     $skill_id = get_skill_id_by_name($skill_name);
+//     if (!$skill_id) {
+//         return new WP_Error('invalid_skill', 'Skill not found', array('status' => 404));
+//     }
+
+//     // Extract the user_id from the JWT token
+//     $user_id = get_current_user_id();
+
+//     $response_data = array(); // Initialize an array to store response data
+
+//     foreach ($skill_modules as $module) {
+//         $module_name = sanitize_text_field($module['module_name']);
+//         $description = sanitize_text_field($module['description']);
+//         $images = maybe_serialize($module['images']); // Serialize the array
+//         $tags = $module['tags']; // Assuming tags are already sanitized
+
+//         // Check if the module with the same name exists for the skill_id
+//         $existing_module = $wpdb->get_row($wpdb->prepare(
+//             "SELECT * FROM pr_modules WHERE skill_id = %d AND module_name = %s",
+//             $skill_id,
+//             $module_name
+//         ), ARRAY_A);
+
+//         if (!$existing_module) {
+//             // Module doesn't exist, so insert it
+//             $wpdb->insert(
+//                 'pr_modules',
+//                 array(
+//                     'user_id' => $user_id,
+//                     'skill_id' => $skill_id,
+//                     'module_name' => $module_name,
+//                     'description' => $description,
+//                     'images' => $images,
+//                 )
+//             );
+//             $module_id = $wpdb->insert_id;
+
+//             // Handle tags
+//             $tag_data = array();
+
+//             foreach ($tags as $tag) {
+//                 // Check if the tag already exists in pr_tag_connectors, if not insert it
+//                 $tag_id = $wpdb->get_var($wpdb->prepare(
+//                     "SELECT id FROM pr_tag_connectors WHERE tag_name = %s",
+//                     $tag
+//                 ));
+
+//                 if (!$tag_id) {
+//                     $wpdb->insert(
+//                         'pr_tag_connectors',
+//                         array(
+//                             'tag_name' => $tag,
+//                             'skill_id' => $skill_id // Insert skill_id into the skill_id column
+//                         )
+//                     );
+//                     $tag_id = $wpdb->insert_id;
+//                 }
+
+//                 // Associate the tag with the module
+//                 $wpdb->insert(
+//                     'pr_module_tags',
+//                     array(
+//                         'module_id' => $module_id,
+//                         'tag_id' => $tag_id
+//                     )
+//                 );
+
+//                 // Store tag data (tag_name, tag_id, and skill_id) for later use
+//                 $tag_data[] = array(
+//                     'tag_name' => $tag,
+//                     'tag_id' => $tag_id,
+//                     'skill_id' => $skill_id // Include skill_id in the tag data
+//                 );
+//             }
+
+//             // Add the module_id, module_name, user_id, and associated tag data to the response data
+//             $response_data[] = array(
+//                 'module_id' => $module_id,
+//                 'module_name' => $module_name,
+//                 'user_id' => $user_id,
+//                 'tags' => $tag_data,
+//                 'message' => 'Module Data Successfully Posted'
+//             );
+//         } else {
+//             // Module with the same name already exists for the skill_id, so show an error message
+//             $response_data[] = array(
+//                 'error' => 'Module with the same name already exists for this skill in the database.',
+//                 'module_name' => $module_name,
+//             );
+//         }
+//     }
+
+//     // Respond with the response data including module_id, user_id, and associated tag data
+//     return new WP_REST_Response($response_data, 200);
+// }
+
+
 add_action('rest_api_init', function () {
     register_rest_route('jhg-apps/v1', '/PracticeModuleInfo', array(
         'methods' => 'POST',
@@ -28,113 +146,176 @@ add_action('rest_api_init', function () {
     ));
 });
 
-// Callback function to handle POST request for module info
 function post_practice_module_info($request) {
     global $wpdb;
 
-    // Decode the JSON request body
     $data = json_decode($request->get_body(), true);
-
-    // Sanitize input data
     $skill_name = sanitize_text_field($data['skill_name']);
     $skill_modules = $data['skill_modules'];
+    $skill_tools = isset($data['skill_tools']) ? $data['skill_tools'] : [];
+    $response_data = [];
 
-    // Convert skill name to skill_id
-    $skill_id = get_skill_id_by_name($skill_name);
-    if (!$skill_id) {
-        return new WP_Error('invalid_skill', 'Skill not found', array('status' => 404));
-    }
+    $skill_info = get_or_create_skill_id_by_name($skill_name, $wpdb);
+    $skill_id = $skill_info['skill_id'];
+    $response_data[] = [
+        'skill_message' => $skill_info['created'] ? "Skill '{$skill_name}' was successfully posted." : "Skill '{$skill_name}' already exists.",
+        'skill_id' => $skill_id
+    ];
 
-    // Extract the user_id from the JWT token
     $user_id = get_current_user_id();
 
-    $response_data = array(); // Initialize an array to store response data
-
     foreach ($skill_modules as $module) {
-        $module_name = sanitize_text_field($module['module_name']);
-        $description = sanitize_text_field($module['description']);
-        $images = maybe_serialize($module['images']); // Serialize the array
-        $tags = $module['tags']; // Assuming tags are already sanitized
+        process_module($module, $skill_id, $user_id, $response_data, $wpdb);
+    }
 
-        // Check if the module with the same name exists for the skill_id
-        $existing_module = $wpdb->get_row($wpdb->prepare(
-            "SELECT * FROM pr_modules WHERE skill_id = %d AND module_name = %s",
-            $skill_id,
-            $module_name
-        ), ARRAY_A);
+    foreach ($skill_tools as $tool) {
+        process_tool($tool, $skill_id, $user_id, $response_data, $wpdb);
+    }
 
-        if (!$existing_module) {
-            // Module doesn't exist, so insert it
-            $wpdb->insert(
-                'pr_modules',
-                array(
-                    'user_id' => $user_id,
-                    'skill_id' => $skill_id,
-                    'module_name' => $module_name,
-                    'description' => $description,
-                    'images' => $images,
-                )
-            );
-            $module_id = $wpdb->insert_id;
+    return new WP_REST_Response($response_data, 200);
+}
 
-            // Handle tags
-            $tag_data = array();
+function get_or_create_skill_id_by_name($skill_name, $wpdb) {
+    $skill_id = $wpdb->get_var($wpdb->prepare(
+        "SELECT id FROM pr_skills WHERE skill_name = %s", $skill_name
+    ));
 
-            foreach ($tags as $tag) {
-                // Check if the tag already exists in pr_tag_connectors, if not insert it
-                $tag_id = $wpdb->get_var($wpdb->prepare(
-                    "SELECT id FROM pr_tag_connectors WHERE tag_name = %s",
-                    $tag
-                ));
+    if (!$skill_id) {
+        $wpdb->insert('pr_skills', ['skill_name' => $skill_name]);
+        return ['skill_id' => $wpdb->insert_id, 'created' => true];
+    }
 
-                if (!$tag_id) {
-                    $wpdb->insert(
-                        'pr_tag_connectors',
-                        array(
-                            'tag_name' => $tag,
-                            'skill_id' => $skill_id // Insert skill_id into the skill_id column
-                        )
-                    );
-                    $tag_id = $wpdb->insert_id;
-                }
+    return ['skill_id' => $skill_id, 'created' => false];
+}
 
-                // Associate the tag with the module
-                $wpdb->insert(
-                    'pr_module_tags',
-                    array(
-                        'module_id' => $module_id,
-                        'tag_id' => $tag_id
-                    )
-                );
+function process_module($module, $skill_id, $user_id, &$response_data, $wpdb) {
+    $module_name = sanitize_text_field($module['module_name']);
+    $description = sanitize_text_field($module['description']);
+    $images = maybe_serialize($module['images']);
 
-                // Store tag data (tag_name, tag_id, and skill_id) for later use
-                $tag_data[] = array(
-                    'tag_name' => $tag,
-                    'tag_id' => $tag_id,
-                    'skill_id' => $skill_id // Include skill_id in the tag data
-                );
-            }
+    // Attempt to find an existing module by skill_id and module_name
+    $existing_module = $wpdb->get_row($wpdb->prepare(
+        "SELECT id FROM pr_modules WHERE skill_id = %d AND module_name = %s",
+        $skill_id, $module_name
+    ), ARRAY_A);
 
-            // Add the module_id, module_name, user_id, and associated tag data to the response data
-            $response_data[] = array(
+    if ($existing_module) {
+        // If the module already exists, use the existing module's ID
+        $module_id = $existing_module['id'];
+        $message = 'Module already exists.';
+    } else {
+        // If the module doesn't exist, insert it and use the new module's ID
+        $wpdb->insert('pr_modules', [
+            'user_id' => $user_id,
+            'skill_id' => $skill_id,
+            'module_name' => $module_name,
+            'description' => $description,
+            'images' => $images,
+        ]);
+        $module_id = $wpdb->insert_id;
+        $message = 'Module Data Successfully Posted';
+    }
+
+    // Process tags associated with the module
+    $tags = isset($module['tags']) ? $module['tags'] : [];
+    foreach ($tags as $tag_name) {
+        $tag_id = process_tag($tag_name, $skill_id, $wpdb);
+        // Ensure a tag_id and module_id association is created only for new insertions
+        if (!$existing_module && $tag_id) {
+            $wpdb->insert('pr_module_tags', [
                 'module_id' => $module_id,
-                'module_name' => $module_name,
-                'user_id' => $user_id,
-                'tags' => $tag_data,
-                'message' => 'Module Data Successfully Posted'
-            );
-        } else {
-            // Module with the same name already exists for the skill_id, so show an error message
-            $response_data[] = array(
-                'error' => 'Module with the same name already exists for this skill in the database.',
-                'module_name' => $module_name,
-            );
+                'tag_id' => $tag_id,
+            ]);
         }
     }
 
-    // Respond with the response data including module_id, user_id, and associated tag data
-    return new WP_REST_Response($response_data, 200);
+    // Fetch tags for the module to include in the response
+    $tags_in_response = fetch_tags_for_module($module_id, $wpdb);
+
+    // Add the module information to the response_data
+    $response_data[] = [
+        'module_id' => $module_id,  // Reflecting the requested change to use 'id' key for the module ID
+        'module_name' => $module_name,
+        'user_id' => $user_id,
+        'tags' => $tags_in_response,
+        'message' => $message
+    ];
 }
+
+
+function fetch_tags_for_module($module_id, $wpdb) {
+    $tags = [];
+    $tag_ids_results = $wpdb->get_results($wpdb->prepare(
+        "SELECT tag_id FROM pr_module_tags WHERE module_id = %d", $module_id
+    ), ARRAY_A);
+
+    foreach ($tag_ids_results as $row) {
+        $tag_id = $row['tag_id'];
+        $tag_name = $wpdb->get_var($wpdb->prepare(
+            "SELECT tag_name FROM pr_tag_connectors WHERE id = %d", $tag_id
+        ));
+        $tags[] = ['tag_id' => $tag_id, 'tag_name' => $tag_name];
+    }
+
+    return $tags;
+}
+
+function process_tag($tag_name, $skill_id, $wpdb) {
+    $existing_tag = $wpdb->get_row($wpdb->prepare(
+        "SELECT id FROM pr_tag_connectors WHERE tag_name = %s AND skill_id = %d",
+        $tag_name, $skill_id
+    ), ARRAY_A);
+
+    if (!$existing_tag) {
+        $wpdb->insert('pr_tag_connectors', [
+            'tag_name' => $tag_name,
+            'skill_id' => $skill_id,
+        ]);
+        return $wpdb->insert_id;
+    }
+
+    return $existing_tag['id'];
+}
+
+function process_tool($tool, $skill_id, $user_id, &$response_data, $wpdb) {
+    $tool_name = sanitize_text_field($tool['tool_name']);
+    $description = sanitize_text_field($tool['description']);
+
+    $existing_tool = $wpdb->get_row($wpdb->prepare(
+        "SELECT id FROM pr_tools WHERE tool_name = %s AND skill_id = %d",
+        $tool_name, $skill_id
+    ), ARRAY_A);
+
+$existing_tool = $wpdb->get_row($wpdb->prepare(
+    "SELECT id FROM pr_tools WHERE tool_name = %s AND skill_id = %d",
+    $tool_name, $skill_id
+), ARRAY_A);
+
+if ($existing_tool) {
+    $tool_id = $existing_tool['id']; // Correctly fetch the existing tool's ID
+} else {
+    $wpdb->insert('pr_tools', [
+        'user_id' => $user_id,
+        'skill_id' => $skill_id,
+        'tool_name' => $tool_name,
+        'description' => $description,
+    ]);
+    $tool_id = $wpdb->insert_id;
+}
+
+$response_data[] = [
+    'tool_id' => $tool_id,
+    'tool_name' => $tool_name,
+    'user_id' => $user_id,
+    'skill_id' => $skill_id,
+    'message' => $existing_tool ? 'Tool already exists.' : 'Tool Data Successfully Posted'
+];
+}
+
+
+
+
+
 
 
 

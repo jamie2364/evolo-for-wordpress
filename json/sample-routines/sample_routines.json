@@ -1,0 +1,228 @@
+{
+    "skills": [
+        {
+            "skill": "Guitar",
+            "routines": [
+                {
+                    "template_name": "New Technique",
+                    "total_duration": 30,
+                    "notes": "",
+                    "tools": [
+                        {
+                            "tool_id": "",
+                            "tool_name": "Metronome"
+                        }
+                    ],
+                    "modules": [
+                        {
+                            "module_id": "",
+                            "module_name": "Warm Up/Stretching",
+                            "duration": 5
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Slow Technique down",
+                            "duration": 5
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Analyse & Test",
+                            "duration": 5
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Increase speed slowly",
+                            "duration": 15
+                        }
+                    ]
+                },
+                {
+                    "template_name": "Song",
+                    "total_duration": 75,
+                    "notes": "",
+                    "tools": [
+                        {
+                            "tool_id": "",
+                            "tool_name": "Metronome"
+                        },
+                        {
+                            "tool_id": "",
+                            "tool_name": "Sound Recorder"
+                        }
+                    ],
+                    "modules": [
+                        {
+                            "module_id": "",
+                            "module_name": "Warm Up/Stretching",
+                            "duration": 5
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Transcription",
+                            "duration": 15
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Chord Changes",
+                            "duration": 15
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Soloing/Scales",
+                            "duration": 15
+                        }
+                    ]
+                },
+                {
+                    "template_name": "Soloing",
+                    "total_duration": 55,
+                    "notes": "",
+                    "tools": [
+                        {
+                            "tool_id": "",
+                            "tool_name": "Metronome"
+                        },
+                        {
+                            "tool_id": "",
+                            "tool_name": "JHG Backing Tracks App"
+                        }
+                    ],
+                    "modules": [
+                        {
+                            "module_id": "",
+                            "module_name": "Warm Up/Stretching",
+                            "duration": 5
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Scale Theory",
+                            "duration": 5
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Improvisation (without limitation)",
+                            "duration": 5
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Improvisation (with limitation)",
+                            "duration": 15
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "skill": "Piano",
+            "routines": [
+                {
+                    "template_name": "Classical Practice",
+                    "total_duration": 60,
+                    "notes": "Focus on classical pieces and technique.",
+                    "tools": [
+                        {
+                            "tool_id": "",
+                            "tool_name": "Metronome"
+                        }
+                    ],
+                    "modules": [
+                        {
+                            "module_id": "",
+                            "module_name": "Warm Up/Hand Exercises",
+                            "duration": 10
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Scale Practice",
+                            "duration": 15
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Etudes",
+                            "duration": 20
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Piece Practice",
+                            "duration": 15
+                        }
+                    ]
+                },
+                {
+                    "template_name": "Jazz Improvisation",
+                    "total_duration": 75,
+                    "notes": "Focus on jazz improvisation and chord progressions.",
+                    "tools": [
+                        {
+                            "tool_id": "",
+                            "tool_name": "Metronome"
+                        },
+                        {
+                            "tool_id": "",
+                            "tool_name": "Backing Tracks"
+                        }
+                    ],
+                    "modules": [
+                        {
+                            "module_id": "",
+                            "module_name": "Warm Up/Chord Voicings",
+                            "duration": 10
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Scale and Arpeggio Practice",
+                            "duration": 20
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Chord Progression Analysis",
+                            "duration": 20
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Improvisation",
+                            "duration": 25
+                        }
+                    ]
+                },
+                {
+                    "template_name": "Pop Song Learning",
+                    "total_duration": 45,
+                    "notes": "Learn and practice popular songs.",
+                    "tools": [
+                        {
+                            "tool_id": "",
+                            "tool_name": "Sheet Music"
+                        },
+                        {
+                            "tool_id": "",
+                            "tool_name": "Audio Player"
+                        }
+                    ],
+                    "modules": [
+                        {
+                            "module_id": "",
+                            "module_name": "Song Introduction",
+                            "duration": 10
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Chord Progression Mastery",
+                            "duration": 15
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Melody Practice",
+                            "duration": 10
+                        },
+                        {
+                            "module_id": "",
+                            "module_name": "Full Song Performance",
+                            "duration": 10
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
