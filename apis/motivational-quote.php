@@ -22,7 +22,7 @@ add_action('rest_api_init', function () {
 
 // Callback function to handle the GET request for motivational quotes
 function get_random_motivational_quote(WP_REST_Request $request) {
-    $file_path = WP_CONTENT_DIR . '/practice-routines-pro/motivational-quotes/motivational_quotes.json';
+    $file_path = dirname(__DIR__) . '/json/motivational_quotes.json';
 
     if (!file_exists($file_path)) {
         return new WP_Error('file_not_found', 'File not found', array('status' => 404));

@@ -22,7 +22,7 @@ add_action('rest_api_init', function () {
 
 // Callback function to handle the GET request for learner_type.json
 function get_learner_type_data(WP_REST_Request $request) {
-    $file_path = WP_CONTENT_DIR . '/practice-routines-pro/quizzes/learner_type.json';
+    $file_path = dirname(__DIR__) . '/json/learner_type.json';
 
     if (!file_exists($file_path)) {
         return new WP_Error('file_not_found', 'File not found', array('status' => 404));

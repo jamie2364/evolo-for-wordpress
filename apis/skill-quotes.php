@@ -38,7 +38,7 @@ function get_random_skill_quote($request) {
     $skills_array = explode(',', $skill_param);
 
     // Define the file path
-    $file_path = WP_CONTENT_DIR . '/practice-routines-pro/skill-quotes/skill_quotes.json';
+    $file_path = dirname(__DIR__) . '/json/skill_quotes.json';
 
     // Check if the file exists
     if (file_exists($file_path)) {

@@ -25,7 +25,7 @@ add_action('rest_api_init', function () {
 
 // Callback function to handle the GET request
 function get_sample_routines_by_skill(WP_REST_Request $request) {
-    $file_path = WP_CONTENT_DIR . '/practice-routines-pro/sample-routines/sample_routines.json';
+    $file_path = dirname(__DIR__) . '/json/sample_routines.json';
     $skill = $request->get_param('skill'); // Retrieve the skill from query parameters
 
     if (empty($skill)) {
